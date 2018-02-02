@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: kafeihu.zk:ZKBase:1.0-SNAPSHOT">
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/kafeihu/zk/ZKBase/1.0-SNAPSHOT/ZKBase-1.0-SNAPSHOT.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/kafeihu/zk/ZKBase/1.0-SNAPSHOT/ZKBase-1.0-20180202.145422-2.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/kafeihu/zk/ZKBase/1.0-SNAPSHOT/ZKBase-1.0-SNAPSHOT-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/kafeihu/zk/ZKBase/1.0-SNAPSHOT/ZKBase-1.0-20180202.145422-2-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/kafeihu/zk/ZKBase/1.0-SNAPSHOT/ZKBase-1.0-SNAPSHOT-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/kafeihu/zk/ZKBase/1.0-SNAPSHOT/ZKBase-1.0-20180202.145422-2-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
