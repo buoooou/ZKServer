@@ -2,8 +2,8 @@ package kafeihu.zk.server.monitor;
 
 import kafeihu.zk.base.util.IPPattern;
 import kafeihu.zk.base.util.MiscUtil;
-import kafeihu.zk.base.util.ResourceUtil;
 import kafeihu.zk.base.util.XmlUtil;
+import kafeihu.zk.server.manager.ResourceManager;
 import kafeihu.zk.server.monitor.proc.GetModuleName;
 import kafeihu.zk.server.monitor.proc.GetStatistics;
 import kafeihu.zk.server.monitor.proc.MonitorProc;
@@ -51,11 +51,11 @@ public class MonitorManager extends ServiceManager{
      * @throws Exception
      */
     private static void initialize() throws Exception {
-        if (!ResourceUtil.isSysDataResourceExists(Config_File_Name))
+        if (!ResourceManager.isSysDataResourceExists(Config_File_Name))
         {
             return;
         }
-        String configData = ResourceUtil.getSysDataResourceContent(Config_File_Name);
+        String configData = ResourceManager.getSysDataResourceContent(Config_File_Name);
         String tmpValue = XmlUtil.getXmlElement("port", configData);
         int port;
         try
@@ -134,7 +134,7 @@ public class MonitorManager extends ServiceManager{
      */
     private static void createMonitorProc(String prid) throws Exception
     {
-        String configData = ResourceUtil.getSysDataResourceContent(Config_File_Name);
+        String configData = ResourceManager.getSysDataResourceContent(Config_File_Name);
         List<String> listPrid = XmlUtil.getAllXmlElements("prid", configData);
         for (String pridConfig : listPrid)
         {

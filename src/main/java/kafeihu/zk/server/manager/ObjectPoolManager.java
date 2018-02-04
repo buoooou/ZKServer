@@ -6,7 +6,6 @@ import kafeihu.zk.base.pool.ObjectPool;
 import kafeihu.zk.base.pool.ObjectPoolConfig;
 import kafeihu.zk.base.pool.PoolableObjectFactory;
 import kafeihu.zk.base.util.MiscUtil;
-import kafeihu.zk.base.util.ResourceUtil;
 import kafeihu.zk.base.util.XmlUtil;
 
 import java.lang.reflect.Constructor;
@@ -61,9 +60,9 @@ public final class ObjectPoolManager {
      * @throws Exception
      */
     private static void initialize() throws Exception {
-        if (ResourceUtil.isSysDataResourceExists(Config_File_Name))
+        if (ResourceManager.isSysDataResourceExists(Config_File_Name))
         {
-            String sysPoolConfigData = ResourceUtil.getSysDataResourceContent(Config_File_Name);
+            String sysPoolConfigData = ResourceManager.getSysDataResourceContent(Config_File_Name);
             try
             {
                 // 解析加载驱动程序
@@ -86,11 +85,11 @@ public final class ObjectPoolManager {
         for (String moduleName : moduleNameList)
         {
             m_moduleObjectPoolMap.remove(moduleName);
-            if (ResourceUtil.isModuleDataResourceExists(moduleName, Config_File_Name))
+            if (ResourceManager.isModuleDataResourceExists(moduleName, Config_File_Name))
             {
                 Map<String, ObjectPool> moduleObjectPool = new ConcurrentHashMap<String, ObjectPool>();
 
-                String modulePoolConfigData = ResourceUtil.getModuleDataResourceContent(
+                String modulePoolConfigData = ResourceManager.getModuleDataResourceContent(
                         moduleName, Config_File_Name);
                 try
                 {

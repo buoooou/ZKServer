@@ -1,6 +1,5 @@
 package kafeihu.zk.server.manager;
 
-import kafeihu.zk.base.util.ResourceUtil;
 import org.apache.log4j.PropertyConfigurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +16,7 @@ public class Slf4JManager {
 
     static {
         try {
-            String path = ResourceUtil.getSysDataPath();
+            String path = ResourceManager.getSysDataPath();
             PropertyConfigurator.configure(path + "log4j.properties");
         } catch (Exception exp) {
             throw new ExceptionInInitializerError(Slf4JManager.class.getName()

@@ -5,10 +5,10 @@ import kafeihu.zk.base.schedule.Task;
 import kafeihu.zk.base.schedule.policy.BasePolicy;
 import kafeihu.zk.base.schedule.policy.Policy;
 import kafeihu.zk.base.util.MiscUtil;
-import kafeihu.zk.base.util.ResourceUtil;
 import kafeihu.zk.base.util.XmlUtil;
 import kafeihu.zk.server.manager.LoggerManager;
 import kafeihu.zk.server.manager.ModuleManager;
+import kafeihu.zk.server.manager.ResourceManager;
 import kafeihu.zk.server.service.ServiceManager;
 
 import java.lang.reflect.Constructor;
@@ -47,9 +47,9 @@ public class ScheduleManager extends ServiceManager {
      */
     public static synchronized void startService() throws Exception
     {
-        if (ResourceUtil.isSysDataResourceExists(Config_File_Name))
+        if (ResourceManager.isSysDataResourceExists(Config_File_Name))
         {
-            String sysTaskConfigData = ResourceUtil.getSysDataResourceContent(Config_File_Name);
+            String sysTaskConfigData = ResourceManager.getSysDataResourceContent(Config_File_Name);
             // 调度应用级任务
             try
             {
@@ -64,11 +64,11 @@ public class ScheduleManager extends ServiceManager {
         List<String> moduleNameList = ModuleManager.getModuleName();
         for (String moduleName : moduleNameList)
         {
-            if (ResourceUtil.isModuleDataResourceExists(moduleName, Config_File_Name))
+            if (ResourceManager.isModuleDataResourceExists(moduleName, Config_File_Name))
             {
                 try
                 {
-                    String moduleTaskConfigData = ResourceUtil.getModuleDataResourceContent(
+                    String moduleTaskConfigData = ResourceManager.getModuleDataResourceContent(
                             moduleName, Config_File_Name);
                     scheduleTask(moduleTaskConfigData, moduleName);
                 }

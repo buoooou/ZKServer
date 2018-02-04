@@ -3,8 +3,8 @@ package kafeihu.zk.server.schedule.task;
 import kafeihu.zk.base.logging.Logger;
 import kafeihu.zk.base.schedule.FileChangeWatcher;
 import kafeihu.zk.base.schedule.TaskExecutionContext;
-import kafeihu.zk.base.util.ResourceUtil;
 import kafeihu.zk.server.manager.LoggerManager;
+import kafeihu.zk.server.manager.ResourceManager;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -65,7 +65,7 @@ public class SystemMaintenanceMonitor extends FileChangeWatcher{
     protected File getTargetFile() throws Exception
     {
         String filename = getParam("filename", "systemMaintenance.txt");
-        File targetFile = ResourceUtil.getSysDataResourceAsFile(filename);
+        File targetFile = ResourceManager.getSysDataResourceAsFile(filename);
         // 初始化系统状态
         onFileChanged(targetFile);
         return targetFile;

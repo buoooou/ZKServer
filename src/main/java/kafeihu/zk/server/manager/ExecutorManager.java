@@ -1,7 +1,6 @@
 package kafeihu.zk.server.manager;
 
 import kafeihu.zk.base.util.MiscUtil;
-import kafeihu.zk.base.util.ResourceUtil;
 import kafeihu.zk.base.util.XmlUtil;
 
 import java.util.Collection;
@@ -52,9 +51,9 @@ public final class ExecutorManager {
 
     private static void initialize() throws Exception
     {
-        if (ResourceUtil.isSysDataResourceExists(Config_File_Name))
+        if (ResourceManager.isSysDataResourceExists(Config_File_Name))
         {
-            String configData = ResourceUtil
+            String configData = ResourceManager
                     .getSysDataResourceContent(Config_File_Name);
             try
             {

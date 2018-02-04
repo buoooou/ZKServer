@@ -2,12 +2,8 @@ package kafeihu.zk.server.core;
 
 import kafeihu.zk.server.core.config.GlobalConfig;
 import kafeihu.zk.base.util.MiscUtil;
-import kafeihu.zk.base.util.ResourceUtil;
 import kafeihu.zk.base.util.XmlUtil;
-import kafeihu.zk.server.manager.ContextManager;
-import kafeihu.zk.server.manager.Slf4JManager;
-import kafeihu.zk.server.manager.LoggerManager;
-import kafeihu.zk.server.manager.ModuleManager;
+import kafeihu.zk.server.manager.*;
 import kafeihu.zk.server.service.ServiceManager;
 
 import java.lang.reflect.InvocationTargetException;
@@ -79,7 +75,7 @@ public class BserverManager {
      */
     public static void start() throws Exception {
         LoggerManager.getSysLogger().info("UniBServer", "System starting......");
-        String configData = ResourceUtil.getSysDataResourceContent(Config_File_Name);
+        String configData = ResourceManager.getSysDataResourceContent(Config_File_Name);
 
         // 初始化全局配置
         String globalConfig = XmlUtil.getXmlElement("global", configData);

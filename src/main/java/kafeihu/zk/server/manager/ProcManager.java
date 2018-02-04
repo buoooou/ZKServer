@@ -7,7 +7,6 @@ import kafeihu.zk.server.core.exception.model.ErrorCodeConstants;
 import kafeihu.zk.server.proc.base.BaseProc;
 import kafeihu.zk.server.proc.RequestData;
 import kafeihu.zk.base.util.MiscUtil;
-import kafeihu.zk.base.util.ResourceUtil;
 import kafeihu.zk.base.util.XmlUtil;
 import kafeihu.zk.server.statistics.IStatistics;
 import kafeihu.zk.server.statistics.StatisticsManager;
@@ -76,7 +75,7 @@ public final class ProcManager {
         Map<String, ProcMetaData> moduleProcMetaDataMap = new ConcurrentHashMap<String, ProcMetaData>();
         m_procMetaDataMap.put(moduleName, moduleProcMetaDataMap);
 
-        String configData = ResourceUtil.getModuleDataResourceContent(moduleName,
+        String configData = ResourceManager.getModuleDataResourceContent(moduleName,
                 Config_File_Name);
 
         String defaultScope = XmlUtil.getXmlElement("proc-scope", configData, Scope_Singleton);

@@ -1,7 +1,6 @@
 package kafeihu.zk.server.manager;
 
 import kafeihu.zk.base.util.MiscUtil;
-import kafeihu.zk.base.util.ResourceUtil;
 import kafeihu.zk.base.util.XmlUtil;
 import kafeihu.zk.server.statistics.DBConnectionPoolStatWrapper;
 import kafeihu.zk.server.statistics.StatisticsManager;
@@ -66,9 +65,9 @@ public final class DBConnectionPoolManager {
      */
     private static void initialize() throws Exception
     {
-        if (ResourceUtil.isSysDataResourceExists(Config_File_Name))
+        if (ResourceManager.isSysDataResourceExists(Config_File_Name))
         {
-            String sysPoolConfigData = ResourceUtil
+            String sysPoolConfigData = ResourceManager
                     .getSysDataResourceContent(Config_File_Name);
             try
             {
@@ -85,10 +84,10 @@ public final class DBConnectionPoolManager {
         List<String> moduleNameList = ModuleManager.getModuleName();
         for (String moduleName : moduleNameList)
         {
-            if (ResourceUtil.isModuleDataResourceExists(moduleName,
+            if (ResourceManager.isModuleDataResourceExists(moduleName,
                     Config_File_Name))
             {
-                String modulePoolConfigData = ResourceUtil
+                String modulePoolConfigData = ResourceManager
                         .getModuleDataResourceContent(moduleName,
                                 Config_File_Name);
                 try

@@ -1,6 +1,7 @@
 package kafeihu.zk.server.core.exception;
 
-import kafeihu.zk.base.util.ResourceUtil;
+
+import kafeihu.zk.server.manager.ResourceManager;
 
 import java.io.InputStream;
 import java.util.Properties;
@@ -18,9 +19,9 @@ public class BServerException extends Exception{
         InputStream is = null;
         try
         {
-            if (ResourceUtil.isSysDataResourceExists(Config_File_Name))
+            if (ResourceManager.isSysDataResourceExists(Config_File_Name))
             {
-                is = ResourceUtil.getSysDataResourceAsStream(Config_File_Name);
+                is = ResourceManager.getSysDataResourceAsStream(Config_File_Name);
                 ErrorCodeMessage.loadFromXML(is);
             }
         }

@@ -4,7 +4,6 @@ import kafeihu.zk.base.logging.ILog;
 import kafeihu.zk.base.logging.LogLevel;
 import kafeihu.zk.base.logging.Logger;
 import kafeihu.zk.base.util.MiscUtil;
-import kafeihu.zk.base.util.ResourceUtil;
 import kafeihu.zk.base.util.XmlUtil;
 
 import java.lang.reflect.InvocationTargetException;
@@ -48,8 +47,8 @@ public final class LoggerManager {
      */
     public static void initialize() throws Exception {
         // 系统日志路径
-        String sysLogPath = ResourceUtil.getSysLogPath();
-        String sysLogConfigData = ResourceUtil.getSysDataResourceContent(Config_File_Name);
+        String sysLogPath = ResourceManager.getSysLogPath();
+        String sysLogConfigData = ResourceManager.getSysDataResourceContent(Config_File_Name);
 
         // 初始化系统日志类
         m_sysLogger = initialize(sysLogPath, sysLogConfigData);
@@ -58,12 +57,12 @@ public final class LoggerManager {
         for (String moduleName : moduleNameList) {
             // 如果模块内没有日志配置文件，取系统日志配置
             String moduleLogConfigData = sysLogConfigData;
-            if (ResourceUtil.isModuleDataResourceExists(moduleName, Config_File_Name)) {
-                moduleLogConfigData = ResourceUtil.getModuleDataResourceContent(moduleName,
+            if (ResourceManager.isModuleDataResourceExists(moduleName, Config_File_Name)) {
+                moduleLogConfigData = ResourceManager.getModuleDataResourceContent(moduleName,
                         Config_File_Name);
             }
             // 模块日志路径
-            String moduleLogPath = ResourceUtil.getModuleLogPath(moduleName);
+            String moduleLogPath = ResourceManager.getModuleLogPath(moduleName);
             // 初始化模块日志类
             Logger moduleLogger = initialize(moduleLogPath, moduleLogConfigData);
             m_moduleLoggerMap.put(moduleName, moduleLogger);

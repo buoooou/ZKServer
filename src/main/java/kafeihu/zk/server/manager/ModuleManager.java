@@ -1,7 +1,6 @@
 package kafeihu.zk.server.manager;
 
 import kafeihu.zk.base.util.MiscUtil;
-import kafeihu.zk.base.util.ResourceUtil;
 import kafeihu.zk.base.util.XmlUtil;
 
 import java.util.ArrayList;
@@ -44,7 +43,7 @@ public final class ModuleManager {
      */
     private static void initialize() throws Exception
     {
-        String configData = ResourceUtil.getSysDataResourceContent(Config_File_Name);
+        String configData = ResourceManager.getSysDataResourceContent(Config_File_Name);
 
         List<String> moduleConfigList = XmlUtil.getAllXmlElements("module", configData);
         for (String moduleConfig : moduleConfigList)

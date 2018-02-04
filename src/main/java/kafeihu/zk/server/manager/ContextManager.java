@@ -4,7 +4,6 @@ import kafeihu.zk.server.core.context.ApplicationContext;
 import kafeihu.zk.server.core.context.ModuleContext;
 import kafeihu.zk.server.core.exception.UndefinedModuleException;
 import kafeihu.zk.base.util.MiscUtil;
-import kafeihu.zk.base.util.ResourceUtil;
 import kafeihu.zk.base.util.XmlUtil;
 
 import java.lang.reflect.Constructor;
@@ -56,7 +55,7 @@ public final class ContextManager {
      */
     private static void initialize() throws Exception
     {
-        String configData = ResourceUtil.getSysDataResourceContent(Config_File_Name);
+        String configData = ResourceManager.getSysDataResourceContent(Config_File_Name);
         // 初始化应用上下文实例
         String appConfig = XmlUtil.getXmlElement("application", configData);
 
@@ -105,7 +104,7 @@ public final class ContextManager {
         }
         try
         {
-            m_applicationContext.loadContextData(ResourceUtil.getSysExtDataPath());
+            m_applicationContext.loadContextData(ResourceManager.getSysExtDataPath());
         }
         catch (Exception exp)
         {
@@ -166,7 +165,7 @@ public final class ContextManager {
             }
             try
             {
-                moduleContext.loadContextData(ResourceUtil.getModuleExtDataPath(moduleName));
+                moduleContext.loadContextData(ResourceManager.getModuleExtDataPath(moduleName));
                 // 保存模块上下文
                 m_activeModuleContextMap.put(moduleName, moduleContext);
             }

@@ -1,9 +1,9 @@
 package kafeihu.zk.server.socket;
 
+import kafeihu.zk.server.manager.ResourceManager;
 import kafeihu.zk.server.service.ServiceManager;
 import kafeihu.zk.base.server.socket.ISocketServer;
 import kafeihu.zk.base.util.MiscUtil;
-import kafeihu.zk.base.util.ResourceUtil;
 import kafeihu.zk.base.util.XmlUtil;
 import kafeihu.zk.server.statistics.IStatistics;
 import kafeihu.zk.server.statistics.StatisticsManager;
@@ -50,7 +50,7 @@ public class SocketServerManager extends ServiceManager {
      */
     private static List<String> getSocketServerConfig() throws Exception
     {
-        String configData = ResourceUtil.getSysDataResourceContent(Config_File_Name);
+        String configData = ResourceManager.getSysDataResourceContent(Config_File_Name);
         List<String> listServerConfig = XmlUtil.getAllXmlElements("socketServer", configData);
         return listServerConfig;
 
