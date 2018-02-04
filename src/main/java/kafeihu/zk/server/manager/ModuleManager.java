@@ -1,5 +1,6 @@
 package kafeihu.zk.server.manager;
 
+import kafeihu.zk.base.logging.slf4j.Slf4JUtil;
 import kafeihu.zk.base.util.MiscUtil;
 import kafeihu.zk.base.util.XmlUtil;
 
@@ -24,9 +25,9 @@ public final class ModuleManager {
     {
         try
         {
-            Slf4JManager.getConsoleLogger().info("Initializing ModuleManager...... ");
+            Slf4JUtil.getConsoleLogger().info("Initializing ModuleManager...... ");
             initialize();
-            Slf4JManager.getConsoleLogger().info("Initializing ModuleManager OK!");
+            Slf4JUtil.getConsoleLogger().info("Initializing ModuleManager OK!");
         }
         catch (Exception exp)
         {

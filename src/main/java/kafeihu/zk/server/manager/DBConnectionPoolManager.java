@@ -1,5 +1,6 @@
 package kafeihu.zk.server.manager;
 
+import kafeihu.zk.base.logging.slf4j.Slf4JUtil;
 import kafeihu.zk.base.util.MiscUtil;
 import kafeihu.zk.base.util.XmlUtil;
 import kafeihu.zk.server.statistics.DBConnectionPoolStatWrapper;
@@ -31,10 +32,10 @@ public final class DBConnectionPoolManager {
     {
         try
         {
-            Slf4JManager.getConsoleLogger().info("Initializing DBConnectionPoolManager...... ");
+            Slf4JUtil.getConsoleLogger().info("Initializing DBConnectionPoolManager...... ");
             initialize();
             logPoolInfo();
-            Slf4JManager.getConsoleLogger().info("Initializing DBConnectionPoolManager OK!");
+            Slf4JUtil.getConsoleLogger().info("Initializing DBConnectionPoolManager OK!");
         }
         catch (Exception exp)
         {

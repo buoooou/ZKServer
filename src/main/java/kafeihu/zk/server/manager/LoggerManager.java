@@ -3,6 +3,7 @@ package kafeihu.zk.server.manager;
 import kafeihu.zk.base.logging.ILog;
 import kafeihu.zk.base.logging.LogLevel;
 import kafeihu.zk.base.logging.Logger;
+import kafeihu.zk.base.logging.slf4j.Slf4JUtil;
 import kafeihu.zk.base.util.MiscUtil;
 import kafeihu.zk.base.util.XmlUtil;
 
@@ -31,9 +32,9 @@ public final class LoggerManager {
 
     static {
         try {
-            Slf4JManager.getConsoleLogger().info("Initializing LoggerManager...... ");
+            Slf4JUtil.getConsoleLogger().info("Initializing LoggerManager...... ");
             initialize();
-            Slf4JManager.getConsoleLogger().info("Initializing LoggerManager OK!");
+            Slf4JUtil.getConsoleLogger().info("Initializing LoggerManager OK!");
         } catch (Exception exp) {
             throw new ExceptionInInitializerError(LoggerManager.class.getName()
                     + ".initialize().  " + exp);

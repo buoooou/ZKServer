@@ -1,5 +1,6 @@
 package kafeihu.zk.server.manager;
 
+import kafeihu.zk.base.logging.slf4j.Slf4JUtil;
 import kafeihu.zk.base.util.MiscUtil;
 import kafeihu.zk.base.util.XmlUtil;
 
@@ -33,9 +34,9 @@ public final class ExecutorManager {
     {
         try
         {
-            Slf4JManager.getConsoleLogger().info("Initializing ExecutorManager...... ");
+            Slf4JUtil.getConsoleLogger().info("Initializing ExecutorManager...... ");
             initialize();
-            Slf4JManager.getConsoleLogger().info("Initializing ExecutorManager OK!");
+            Slf4JUtil.getConsoleLogger().info("Initializing ExecutorManager OK!");
         }
         catch (Exception exp)
         {

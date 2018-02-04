@@ -1,5 +1,6 @@
 package kafeihu.zk.server.manager;
 
+import kafeihu.zk.base.logging.slf4j.Slf4JUtil;
 import kafeihu.zk.server.core.context.ApplicationContext;
 import kafeihu.zk.server.core.context.ModuleContext;
 import kafeihu.zk.server.core.exception.UndefinedModuleException;
@@ -37,9 +38,9 @@ public final class ContextManager {
     {
         try
         {
-            Slf4JManager.getConsoleLogger().info("Initializing ContextManager......");
+            Slf4JUtil.getConsoleLogger().info("Initializing ContextManager......");
             initialize();
-            Slf4JManager.getConsoleLogger().info("Initializing ContextManager OK!");
+            Slf4JUtil.getConsoleLogger().info("Initializing ContextManager OK!");
         }
         catch (Exception exp)
         {

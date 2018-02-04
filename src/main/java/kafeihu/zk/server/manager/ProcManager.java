@@ -1,5 +1,6 @@
 package kafeihu.zk.server.manager;
 
+import kafeihu.zk.base.logging.slf4j.Slf4JUtil;
 import kafeihu.zk.server.core.exception.BServerException;
 import kafeihu.zk.server.core.exception.UndefinedModuleException;
 import kafeihu.zk.server.core.exception.UndefinedProcException;
@@ -34,9 +35,9 @@ public final class ProcManager {
     {
         try
         {
-            Slf4JManager.getConsoleLogger().info("Initializing ProcManager...... ");
+            Slf4JUtil.getConsoleLogger().info("Initializing ProcManager...... ");
             initialize();
-            Slf4JManager.getConsoleLogger().info("Initializing ProcManager OK!");
+            Slf4JUtil.getConsoleLogger().info("Initializing ProcManager OK!");
         }
         catch (Exception exp)
         {

@@ -1,5 +1,6 @@
 package kafeihu.zk.server.core;
 
+import kafeihu.zk.base.logging.slf4j.Slf4JUtil;
 import kafeihu.zk.server.core.config.GlobalConfig;
 import kafeihu.zk.base.util.MiscUtil;
 import kafeihu.zk.base.util.XmlUtil;
@@ -136,7 +137,7 @@ public class BserverManager {
         if (fail) {
             throw new Exception("StatService failed!");
         }
-        Slf4JManager.getConsoleLogger().info("StatService OK!");
+        Slf4JUtil.getConsoleLogger().info("StatService OK!");
     }
 
     private static class StartService implements Callable<Void> {
@@ -169,7 +170,7 @@ public class BserverManager {
                         + ServiceManager.class.getName());
             }
             // 启动服务
-            Slf4JManager.getConsoleLogger().info("Starting service " + description + "...... ");
+            Slf4JUtil.getConsoleLogger().info("Starting service " + description + "...... ");
             Method startServiceMethod = serviceManager.getMethod("startService");
             try {
                 startServiceMethod.invoke(serviceManager);
@@ -207,7 +208,7 @@ public class BserverManager {
         if (index > 0) {
             activeModules = activeModules.substring(0, index);
         }
-        Slf4JManager.getConsoleLogger().info("Active module: " + activeModules);
+        Slf4JUtil.getConsoleLogger().info("Active module: " + activeModules);
         LoggerManager.getSysLogger().info("Active module: ", activeModules);
 
     }
